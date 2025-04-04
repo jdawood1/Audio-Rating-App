@@ -1,0 +1,32 @@
+# React Native
+node_modules/
+.buckconfig
+.gradle/
+build/
+ios/Pods/
+*.iml
+.idea/
+*.log
+*.lock
+.env
+android/app/build/
+ios/build/
+*.keystore
+.expo/
+.expo-shared/
+web-build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+
+# Mac system files
+Icon?
+
+# Misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
