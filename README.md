@@ -1,6 +1,6 @@
 # Audio Rating App 🎧
 
-![App Preview](screenshot.png)
+![App Preview](Screenshot.png)
 
 ### 🎧 Playlist Previews
 
