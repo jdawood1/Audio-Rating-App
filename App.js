@@ -130,14 +130,23 @@ export default class App extends Component {
 
   onSave = async () => {
     try {
-      const { rating1, rating2, rating3 } = this.state;
-      const combinedRatings = JSON.stringify({ rating1, rating2, rating3 });
-      await AsyncStorage.setItem(key, combinedRatings);
-      Alert.alert('Saved', 'Ratings saved locally!');
+      const currentKey = `rating${this.state.currentTrackIndex + 1}`;
+      const currentValue = this.state[currentKey];
+  
+      const storedValue = await AsyncStorage.getItem(key);
+      let parsed = { rating1: '', rating2: '', rating3: '' };
+      if (storedValue) {
+        parsed = JSON.parse(storedValue);
+      }
+  
+      parsed[currentKey] = currentValue;
+      await AsyncStorage.setItem(key, JSON.stringify(parsed));
+  
+      Alert.alert('Saved', 'Rating saved for current track!');
     } catch (error) {
-      Alert.alert('Error', 'Failed to save ratings.');
+      Alert.alert('Error', 'Failed to save rating.');
     }
-  };
+  };  
 
   onLoad = async () => {
     try {
